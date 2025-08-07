@@ -102,4 +102,11 @@ for episode in range(SHOW_EVERY):
     else:
         show=False
 
-        
+    episode_rewards=0
+    for i in range(200):
+        obs=(player,food),(player,enemy)
+        if np.random.random()>EPSILON:
+            action=np.argmax(obs)
+        else:
+            action=np.random.randint(0,4)
+        player.action(action)
